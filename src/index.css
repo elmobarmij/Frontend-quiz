@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  /* Creating animations for dark mode */
+  transition: background-color 0.3s, border 0.3s;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: #f4f6fa;
+
+  &.dark {
+    background-color: #303e50;
+  }
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  transition: color 0.3s;
+  min-height: 100vh;
+  line-height: 1.5;
+  font-size: 1.6rem;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+
+  &.correct {
+    outline: 3px solid #26d782;
+
+    & span {
+      background-color: #26d782;
+    }
+  }
+
+  &.incorrect {
+    outline: 3px solid #ee5454;
+
+    & span {
+      background-color: #ee5454;
+    }
+
+    & img:last-child {
+      display: flex;
+    }
+  }
+
+  &:disabled:hover:not(.correct) {
+    outline: none;
+
+    & span {
+      background-color: #e2e8ef;
+    }
+  }
+}
+
+*:disabled {
+  cursor: not-allowed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  font-size: 12px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #b02ceb;
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 20px;
+  left: 0.3em;
+  bottom: 0.3em;
+  background-color: white;
+  transition: 0.3s cubic-bezier(0, 2.18, 0.64, 0.69);
+}
+
+input:checked + .slider:before {
+  transform: translateX(1.5em);
+}
