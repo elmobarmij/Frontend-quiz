@@ -61,7 +61,7 @@ button {
     }
   }
 
-  &:disabled:hover:not(.correct) {
+  &:disabled:hover:not(.correct, .incorrect) {
     outline: none;
 
     & span {
