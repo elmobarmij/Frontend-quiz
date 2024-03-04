@@ -68,7 +68,9 @@ function QuizProvider({ children }) {
   useEffect(function () {
     async function getData() {
       try {
-        const res = await fetch("../src/data/data.json");
+        const res = await fetch(
+          "https://react-frontend-quiz.netlify.app/data.json"
+        );
         const data = await res.json();
         dispatch({ type: "dataReceived", payload: data });
       } catch (err) {
