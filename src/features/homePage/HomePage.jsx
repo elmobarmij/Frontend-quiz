@@ -13,7 +13,7 @@ function HomePage() {
     function () {
       async function getData() {
         try {
-          const res = await fetch("../src/data/data.json");
+          const res = await fetch("/public/data.json");
           const data = await res.json();
           dispatch({ type: "dataReceived", payload: data });
         } catch (err) {
